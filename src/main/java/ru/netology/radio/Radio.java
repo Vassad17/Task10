@@ -6,15 +6,15 @@ import javax.annotation.processing.SupportedAnnotationTypes;
 
 public class Radio {
     private int radioStations;
-    private int maxRadioStation;
-    private int minRadioStation;
     private int currentRadioStation;
     private int currentVolume;
+    public int maxRadioStation = 9;
+    public int minRadioStation = 0;
 
-    public Radio(int radioStations, int maxRadioStation, int minRadioStation) {
+
+    public Radio(int radioStations) {
         this.radioStations = radioStations;
-        this.maxRadioStation = maxRadioStation;
-        this.minRadioStation = minRadioStation;
+
     }
 
     public Radio() {
@@ -45,7 +45,7 @@ public class Radio {
     }
 
     public void prevRadiostation(int prevNewRadiostation) {
-        if (prevNewRadiostation < minRadioStation) {
+        if (prevNewRadiostation <= minRadioStation) {
             prevNewRadiostation = maxRadioStation;
         } else {
             prevNewRadiostation--;

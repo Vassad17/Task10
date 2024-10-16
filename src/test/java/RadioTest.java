@@ -4,11 +4,13 @@ import ru.netology.radio.Radio;
 
 public class RadioTest {
 
-    Radio radio = new Radio(10, 9, 0);
+    Radio radio = new Radio(10);
+
 
     @Test
     public void shouldNextMaxRadiostation() {
         radio.nextRadiostation(11);
+        int minRadioStation = 0;
         Assertions.assertEquals(0, radio.getRadiostation());
 
     }
