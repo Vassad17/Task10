@@ -52,6 +52,12 @@ public class RadioTest {
         Assertions.assertEquals(0, radio.getRadiostation());
 
     }
+    @Test
+    public void shouldSetRadiostationXX(){
+        Radio radioD = new Radio(20);
+        radioD.setRadiostation(15);
+        Assertions.assertEquals(0,radioD.getRadiostation());
+    }
 
     @Test
     public void shouldVolumeSetCurrent() {
