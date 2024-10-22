@@ -7,8 +7,6 @@ public class RadioTest {
     @Test
     public void shouldNextMaxRadiostation() {
         Radio radio = new Radio(10);
-        radio.maxRadioStation = 9;
-        radio.minRadioStation = 0;
         radio.nextRadiostation(11);
         Assertions.assertEquals(0, radio.getRadiostation());
 
@@ -17,8 +15,6 @@ public class RadioTest {
     @Test
     public void shouldPrevMinRadiostation() {
         Radio radio = new Radio(10);
-        radio.maxRadioStation = 9;
-        radio.minRadioStation = 0;
         radio.prevRadiostation(-1);
         Assertions.assertEquals(9, radio.getRadiostation());
     }
@@ -26,8 +22,6 @@ public class RadioTest {
     @Test
     public void shouldSetRadiostation() {
         Radio radio = new Radio(10);
-        radio.maxRadioStation = 9;
-        radio.minRadioStation = 0;
         radio.setRadiostation(7);
         Assertions.assertEquals(7, radio.getRadiostation());
     }
@@ -35,8 +29,6 @@ public class RadioTest {
     @Test
     public void shouldPrevRadiostation() {
         Radio radio = new Radio(10);
-        radio.maxRadioStation = 9;
-        radio.minRadioStation = 0;
         radio.prevRadiostation(4);
         Assertions.assertEquals(3, radio.getRadiostation());
     }
@@ -44,8 +36,6 @@ public class RadioTest {
     @Test
     public void shouldNextRadiostation() {
         Radio radio = new Radio(10);
-        radio.maxRadioStation = 9;
-        radio.minRadioStation = 0;
         radio.nextRadiostation(5);
         Assertions.assertEquals(6, radio.getRadiostation());
     }
@@ -53,8 +43,6 @@ public class RadioTest {
     @Test
     public void shouldRadiostationOverSetMax() {
         Radio radio = new Radio(10);
-        radio.maxRadioStation = 9;
-        radio.minRadioStation = 0;
         radio.setRadiostation(20);
         Assertions.assertEquals(0, radio.getRadiostation());
 
@@ -63,19 +51,15 @@ public class RadioTest {
     @Test
     public void shouldSetRadiostationUnlimited() {
         Radio radio = new Radio(10);
-        radio.maxRadioStation = 9;
-        radio.minRadioStation = 0;
         radio.setRadiostation(-7);
         Assertions.assertEquals(0, radio.getRadiostation());
 
     }
     @Test
     public void shouldSetRadiostationXX(){
-        Radio radioD = new Radio(20);
-        radioD.maxRadioStation = 19;
-        radioD.minRadioStation = 0;
-        radioD.setRadiostation(15);
-        Assertions.assertEquals(15,radioD.getRadiostation());
+        Radio radio = new Radio(20);
+        radio.setRadiostation(15);
+        Assertions.assertEquals(15,radio.getRadiostation());
     }
 
     @Test
