@@ -5,42 +5,53 @@ import jdk.jfr.Registered;
 import javax.annotation.processing.SupportedAnnotationTypes;
 
 public class Radio {
-    private int radiostation;
+    private int radioStations;
+    private int currentRadioStation;
+    private int currentVolume;
+    public int minRadioStation;
+    public int maxRadioStation;
+
+    public Radio() {
+        this.radioStations = 10;
+    }
+
+    public Radio(int radioStations) {
+        this.radioStations = radioStations;
+        this.maxRadioStation = minRadioStation + radioStations - 1;
+    }
 
     public int getRadiostation() {
-        return radiostation;
+        return currentRadioStation;
     }
 
     public void setRadiostation(int newRadiostation) {
-        if (newRadiostation > 9) {
+        if (newRadiostation > maxRadioStation) {
             return;
         }
-        if (newRadiostation < 0) {
+        if (newRadiostation < minRadioStation) {
             return;
         }
-        radiostation = newRadiostation;
+        currentRadioStation = newRadiostation;
     }
 
     public void nextRadiostation(int nextNewRadiostation) {
-        if (nextNewRadiostation > 9) {
-            nextNewRadiostation = 0;
+        if (nextNewRadiostation > maxRadioStation) {
+            nextNewRadiostation = minRadioStation;
         } else {
             nextNewRadiostation++;
         }
-        radiostation = nextNewRadiostation;
+        currentRadioStation = nextNewRadiostation;
     }
 
     public void prevRadiostation(int prevNewRadiostation) {
-        if (prevNewRadiostation < 0) {
-            prevNewRadiostation = 9;
+        if (prevNewRadiostation <= minRadioStation) {
+            prevNewRadiostation = maxRadioStation;
         } else {
             prevNewRadiostation--;
         }
-        radiostation = prevNewRadiostation;
+        currentRadioStation = prevNewRadiostation;
     }
 
-
-    private int currentVolume;
 
     public int getCurrentVolume() {
         return currentVolume;
@@ -75,4 +86,5 @@ public class Radio {
         }
         currentVolume = newCurrentVolumeMin;
     }
+
 }
